@@ -1,66 +1,134 @@
 
 <CurrencyConverterScreen>:
-    BoxLayout:
-        orientation: 'vertical'
-        size_hint_y: None
-        height: "300dp"
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    MDScreen:
 
-        MDLabel:
-            id: output_label
-            text: ""
-            halign: "center"
-            theme_text_color: "Secondary"
-            font_style: "Body1"
-            size_hint_y: None
-            height: self.texture_size[1]
-        MDTextField:
-            id: currency1_field
-            hint_text: "Enter first currency"
-            helper_text: "e.g., USD, EUR, GBP"
-            helper_text_mode: "on_focus"
-            size_hint_x: None
-            width: 300
-            size_hint_y: None
-            height: "48dp"
-            multiline: False
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        MDBottomNavigation:
+            panel_color: "##8ECEDE"
+            selected_color_background: "white"
+            text_color_active: "white"
 
-        MDLabel:
-            text: "Convert to"
-            size_hint: None, None
-            size: 150, 50
-            pos_hint: {"center_x": 0.5}
-            elevation_normal: 8
-        MDTextField:
-            id: currency2_field
-            hint_text: "Enter second currency"
-            helper_text: "e.g., USD, EUR, GBP"
-            helper_text_mode: "on_focus"
-            size_hint_x: None
-            width: 300
-            size_hint_y: None
-            height: "48dp"
-            multiline: False
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Convert'
+                icon: 'scale-balance'
+                color: 1 , 0 , 0 , 1
+               
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "300dp"
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-        MDTextField:
-            id: amount_field
-            hint_text: "Enter amount"
-            input_type: "number"
-            size_hint_x: None
-            width: 300
-            size_hint_y: None
-            height: "48dp"
-            multiline: False
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    MDLabel:
+                        id: output_label
+                        text: ""
+                        halign: "center"
+                        theme_text_color: "Secondary"
+                        font_style: "Body1"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDTextField:
+                        id: currency1_field
+                        hint_text: "Enter first currency"
+                        helper_text: "e.g., USD, EUR, GBP"
+                        helper_text_mode: "on_focus"
+                        size_hint_x: None
+                        width: 300
+                        size_hint_y: None
+                        height: "48dp"
+                        multiline: False
+                        pos_hint: {'center_x': 0.5}
 
-        MDRectangleFlatButton:
-            text: "Convert"
-            on_press: app.convert_currency()
-            size_hint: None, None
-            size: 150, 50
-            pos_hint: {"center_x": 0.5}
-            elevation_normal: 8
+                    MDLabel:
+                        text: "Convert to"
+                        size_hint: None, None
+                        size: 150, 50
+                        pos_hint: {"center_x": 0.5}
+                        elevation_normal: 8
+                    MDTextField:
+                        id: currency2_field
+                        hint_text: "Enter second currency"
+                        helper_text: "e.g., USD, EUR, GBP"
+                        helper_text_mode: "on_focus"
+                        size_hint_x: None
+                        width: 300
+                        size_hint_y: None
+                        height: "48dp"
+                        multiline: False
+                        pos_hint: {'center_x': 0.5}
 
-       
+                    MDTextField:
+                        id: amount_field
+                        hint_text: "Enter amount"
+                        input_type: "number"
+                        size_hint_x: None
+                        width: 300
+                        size_hint_y: None
+                        height: "48dp"
+                        multiline: False
+                        pos_hint: {'center_x': 0.5}
+
+                    MDRectangleFlatButton:
+                        text: "Convert"
+                        on_press: app.convert_currency()
+                        size_hint: None, None
+                        size: 150, 50
+                        pos_hint: {"center_x": 0.5}
+                        elevation_normal: 8
+                MDFloatingActionButton:
+                    icon: "logout"
+                    md_bg_color: "#8ECEDE"
+                    pos_hint: {"center_x": .9, "center_y": .1}
+                    on_release: app.logout_button()
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'About'
+                icon: 'information'
+
+                MDLabel:
+                    text: 'INFORMATION ABOUT DEVS'
+                    halign: "center"
+                    pos_hint: {"center_x": .5, "center_y": .7}
+                    bold: True
+                    
+                MDLabel:
+                    text: '  Geraldine T. Cabasa'
+                    halign: 'center'
+                    pos_hint: {"center_x": .5, "center_y": .6}
+                MDLabel:
+                    text: 'Mia Anzella D. Alisdan  '
+                    halign: 'center'
+                    pos_hint: {"center_x": .5, "center_y": .5}
+
+            MDBottomNavigationItem:
+                name: 'screen 3'
+                text: 'System Info'
+                icon: 'application'
+
+                MDLabel:
+                    text: 'System Info'
+                    halign: 'center'
+                    halign: "center"
+                    pos_hint: {"center_x": .5, "center_y": .7}
+                    bold: True
+                MDLabel:
+                    text: 'Grocery Notes is your handy tool for making shopping lists on the go. With easy list management and quick item entry, never forget a grocery item again.'
+                    halign: 'center'
+                    pos_hint: {"center_x": .5, "center_y": .6}
+
+            MDBottomNavigationItem:
+                name: 'screen 4'
+                text: 'System Help'
+                icon: 'application-braces-outline'
+
+                MDLabel:
+                    text: 'System Help'
+                    halign: 'center'
+                    halign: "center"
+                    pos_hint: {"center_x": .5, "center_y": .7}
+                    bold: True
+                MDLabel:
+                    text: " Need a hand? Check out our Help section for tips on using Grocery Notes efficiently. If you're stuck or have suggestions, drop us a line in the app!"
+                    halign: 'center'
+                    pos_hint: {"center_x": .5, "center_y": .6}

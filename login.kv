@@ -1,0 +1,90 @@
+<testApp>:
+    Screen:
+
+        MDBottomNavigation:
+            panel_color: "#EAE8E8"
+            selected_color_background: "lightblue"
+            text_color_active: "black"
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'My Grocery List App'
+                icon: 'basket'
+
+                Image:
+                    source: "logo.png"
+                    size_hint: None, None
+                    width: "80dp"
+                    height: "80dp"
+                    pos_hint: {'center_x': .5, 'center_y': .9}
+                MDLabel:
+                    text: "Grocery List"
+                    source: "logo.png"
+                    color: "#484747"
+                    bold: True
+                    font_size: "48dp"
+                    halign: "center"
+                    pos_hint: {'center_y': .79}
+
+                MDLabel:
+                    id: error_label  
+                    text: ""
+                    color: "#FF0000"
+                    bold: True
+                    font_size: "18dp"
+                    halign: "center"
+                    pos_hint: {'center_y': .72}
+                    
+                MDTextField:
+                    id: Username
+                    hint_text: "Username"
+                    icon_right: "account"
+                    helper_text: "Enter username"
+                    helper_text_mode: "on_focus"
+                    font_size: "20dp"
+                    size_hint_x: .85
+                    pos_hint: {'center_x': .5, 'center_y': .65}
+                    on_text: self.text = self.text.replace(" ", "")
+                    write_tab: False
+
+                MDTextField:
+                    id: Password
+                    hint_text: "Password"
+                    password: True
+                    icon_right: "eye-off"
+                    helper_text: "Enter password"
+                    helper_text_mode: "on_focus"
+                    font_size: "20dp"
+                    size_hint_x: .85
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    on_text: self.text = self.text.replace(" ", "")
+                    write_tab: False
+
+                BoxLayout: 
+                    size_hint: .6, None
+                    height: "30dp"
+                    pos_hint: {'center_x': .5, 'center_y': .3}
+                    spacing: '15dp'
+                    
+                    MDRectangleFlatIconButton:
+                        text: "Sign Up"
+                        icon: "account-edit" 
+                        font_size: "22dp"
+                        size_hint_x: 1
+                        md_bg_color: "lightblue"
+                        on_release: app.validate_signup()
+
+                BoxLayout: 
+                    size_hint: .6, None
+                    height: "30dp"
+                    pos_hint: {'center_x': .5, 'center_y': .2}
+                    spacing: '15dp'
+
+                    MDRectangleFlatIconButton:
+                        text: "Log In"
+                        icon: "account-check" 
+                        font_size: "22dp"
+                        size_hint_x: 1
+                        md_bg_color: "lightblue"
+                        on_release: app.validate_login()
+
