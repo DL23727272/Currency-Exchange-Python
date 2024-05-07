@@ -12,8 +12,7 @@ class testApp(Screen):
 
 class Login(MDApp):
     def build(self):
-        self.theme_cls.theme_style = "Light"
-        self.theme_cls.primary_palette = "Blue"
+        self.theme_cls.primary_palette = "Purple"
         self.db = Database()
         return testApp() 
     

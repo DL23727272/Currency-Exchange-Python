@@ -19,6 +19,8 @@ class CurrencyConverterApp(MDApp):
     db = Database()
     
     def build(self):
+        self.theme_cls.theme_style = "Light"
+        self.theme_cls.primary_palette = "Blue"
         self.screen = CurrencyConverterScreen()
         return self.screen
 
